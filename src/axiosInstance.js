@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
     //baseURL: "http://localhost:3300"
-    baseURL = "https://mountain-bookstore-backend.onrender.com";
+    baseURL: "https://mountain-bookstore-backend.onrender.com"
 });
 
 //Intercepteur pour ajouter le token automatiquement
