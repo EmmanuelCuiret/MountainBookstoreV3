@@ -12,12 +12,12 @@ const CreateProject = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  //const baseURL = "http://localhost:3300/";
-  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
-
   const navigate = useNavigate();
-  const sanitizeInput = (value) =>
-    value.trim().replace(/[^A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'@-]/g, "");
+
+  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
+  //const baseURL = "http://localhost:3300/";
+  
+  const sanitizeInput = (value) => value.trim().replace(/[^A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'@-]/g, "");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +34,7 @@ const CreateProject = () => {
       title: sanitizeInput(title),
       description: sanitizeInput(description),
       author: sanitizeInput(author),
-      technologies: sanitizeInput(technologies),
+      technologies: sanitizeInput(technologies)
     };
 
     try {
@@ -55,63 +55,53 @@ const CreateProject = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title :</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className={isSubmitting && !title.trim() ? "input-error" : ""}
+          <input 
+            type="text" 
+            id="title" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            className={isSubmitting && !title.trim() ? "input-error" : ""} 
           />
-          {isSubmitting && !title.trim() && (
-            <p className="error-message">Project title is required</p>
-          )}
+          {isSubmitting && !title.trim() && <p className="error-message">Project title is required</p>}
         </div>
         <div>
           <label htmlFor="author">Author :</label>
-          <input
-            type="text"
-            id="author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            className={isSubmitting && !author.trim() ? "input-error" : ""}
+          <input 
+            type="text" 
+            id="author" 
+            value={author} 
+            onChange={(e) => setAuthor(e.target.value)} 
+            className={isSubmitting && !author.trim() ? "input-error" : ""} 
           />
-          {isSubmitting && !author.trim() && (
-            <p className="error-message">Author name is required</p>
-          )}
-        </div>
+          {isSubmitting && !author.trim() && <p className="error-message">Author name is required</p>}
+        </div>        
 
         <div>
           <label htmlFor="description">Description :</label>
-          <textarea
-            id="description"
-            rows="7"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className={isSubmitting && !description.trim() ? "input-error" : ""}
+          <textarea 
+            id="description" 
+            rows="7" 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
+            className={isSubmitting && !description.trim() ? "input-error" : ""} 
           />
-          {isSubmitting && !description.trim() && (
-            <p className="error-message">Description is required</p>
-          )}
+          {isSubmitting && !description.trim() && <p className="error-message">Description is required</p>}
         </div>
 
         <div>
           <label htmlFor="technologies">Technologies :</label>
-          <textarea
-            id="technologies"
-            rows="3"
-            value={technologies}
-            onChange={(e) => setTechnologies(e.target.value)}
+          <textarea 
+            id="technologies" 
+            rows="3" 
+            value={technologies} 
+            onChange={(e) => setTechnologies(e.target.value)} 
           />
         </div>
 
         <div>
-          <button className="event-button" type="submit">
-            Create
-          </button>
+          <button className="event-button" type="submit">Create</button>
           <Link to="/">
-            <button className="event-button" type="button">
-              Cancel
-            </button>
+            <button className="event-button" type="button">Cancel</button>
           </Link>
         </div>
       </form>

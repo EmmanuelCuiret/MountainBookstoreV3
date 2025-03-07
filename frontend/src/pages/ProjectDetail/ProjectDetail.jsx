@@ -6,9 +6,10 @@ import Swal from "sweetalert2";
 import axiosInstance from "../../axiosInstance";
 
 const ProjectDetail = () => {
-  //const baseURL = "http://localhost:3300/";
-  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
 
+  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
+  //const baseURL = "http://localhost:3300/";
+  
   const sanitizeInput = (value) =>
     value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'@-]/g, ""); //Filtre sur les caractères admis à la saisie
 
@@ -39,6 +40,7 @@ const ProjectDetail = () => {
         const routeURL2 = `project/${id}/candidates`;
         const response2 = await axiosInstance.get(baseURL + routeURL2);
         setCandidates(response2.data); // Met à jour l'état avec les nouvelles données
+        console.log(response2.data);
       } catch (error) {
         console.error("Error retrieving project :", error);
         setError("Project not found");
@@ -73,9 +75,9 @@ const ProjectDetail = () => {
     const result = await Swal.fire({
       title: "Confirm addition",
       html: `
-       <p>Add this candidate ?</p>
-       <strong>Nom :</strong> "${candidateNameForAdd}"<br/>
-     `,
+        <p>Add this candidate ?</p>
+        <strong>Nom :</strong> "${candidateNameForAdd}"<br/>
+      `,
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "Yes, add",
@@ -155,9 +157,9 @@ const ProjectDetail = () => {
     const result = await Swal.fire({
       title: "Confirm deletion",
       html: `
-       <p>Are you sure you want to remove this candidate?</p>
-       <strong>Name:</strong> "${candidateName}"<br/>
-     `,
+        <p>Are you sure you want to remove this candidate?</p>
+        <strong>Name:</strong> "${candidateName}"<br/>
+      `,
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: "Yes, delete",
