@@ -78,7 +78,20 @@ function Home() {
         axiosInstance
           .delete(baseURL + `project/${project.id}`)
           .then(() => {
-            setProjects(projects.filter((p) => p.id !== project.id));
+            setProjects((prevProjects) => {
+              const updatedProjects = prevProjects.filter(
+                (p) => p.id !== project.id
+              );
+
+              // Si tous les projets sont supprimés, on cache la liste détaillée
+              if (updatedProjects.length === 0) {
+                setShowCandidates(false);
+                setCandidatesAndProjects({});
+              }
+
+              return updatedProjects;
+            });
+
             //Swal.fire("Deleted!", "Your project has been deleted.", "success");
             // Rafraîchir la liste des projets avec candidats si elle est affichée
             if (showCandidates) {
@@ -223,7 +236,7 @@ function Home() {
           </Link>
         )}
 
-        {showCandidates && (
+        {showCandidates && Object.keys(candidatesAndProjects).length >0 && (
           <div className="participant-container">
             <h2>List of projects and candidates</h2>
             <button className="event-button" onClick={exportToPDF}>
