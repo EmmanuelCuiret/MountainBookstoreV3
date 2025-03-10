@@ -79,7 +79,8 @@ function Home() {
         axiosInstance
           .delete(baseURL + `project/${project.id}`)
           .then(() => {
-            setProjects(projects.filter((p) => p.id !== project.id));
+            fetchDetailedProjects();
+            //setProjects(projects.filter((p) => p.id !== project.id));
             //Swal.fire("Deleted!", "Your project has been deleted.", "success");
           })
           .catch((error) =>
