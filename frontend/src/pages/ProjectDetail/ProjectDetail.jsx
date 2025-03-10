@@ -221,7 +221,7 @@ const ProjectDetail = () => {
               )}
             </div>
             <div className="form-group">
-              <label htmlFor="description">Description :</label>
+              <label htmlFor="description"><u>Description</u> :</label>
               <textarea
                 id="description"
                 rows="7"
@@ -236,10 +236,10 @@ const ProjectDetail = () => {
               )}
             </div>
             <div className="form-group">
-              <label htmlFor="technologies">Technologies :</label>
+              <label htmlFor="technologies"><u>Technologies</u> :</label>
               <textarea
                 id="technologies"
-                rows="3"
+                rows="7"
                 value={technologies}
                 onChange={(e) => setTechnologies(sanitizeInput(e.target.value))}
                 className={

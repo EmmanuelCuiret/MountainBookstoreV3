@@ -92,7 +92,7 @@ const CreateProject = () => {
           <label htmlFor="technologies">Technologies :</label>
           <textarea 
             id="technologies" 
-            rows="3" 
+            rows="7" 
             value={technologies} 
             onChange={(e) => setTechnologies(e.target.value)} 
           />
