@@ -8,7 +8,6 @@ import autoTable from "jspdf-autotable";
 import axiosInstance from "../../axiosInstance";
 
 function Home() {
-  
   const baseURL = "https://mountain-bookstore-backend.onrender.com/";
   //const baseURL = "http://localhost:3300/";
 
@@ -79,9 +78,12 @@ function Home() {
         axiosInstance
           .delete(baseURL + `project/${project.id}`)
           .then(() => {
-            fetchDetailedProjects();
-            //setProjects(projects.filter((p) => p.id !== project.id));
+            setProjects(projects.filter((p) => p.id !== project.id));
             //Swal.fire("Deleted!", "Your project has been deleted.", "success");
+            // Rafraîchir la liste des projets avec candidats si elle est affichée
+            if (showCandidates) {
+              fetchDetailedProjects();
+            }
           })
           .catch((error) =>
             Swal.fire("Error!", "Could not delete project.", "error")
@@ -183,7 +185,9 @@ function Home() {
           <Link to="add-project">
             <button className="event-button">Add a project</button>
           </Link>
-          <button className="event-button" onClick={handleLogout}>Logout</button>
+          <button className="event-button" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
 
         <div className="event-grid">
@@ -199,7 +203,10 @@ function Home() {
                 </h2>
                 <p>Author: {project.author}</p>
                 <p>Candidates: {project.candidate_count}</p>
-                <button className="event-button" onClick={() => handleRemoveProject(project)}>
+                <button
+                  className="event-button"
+                  onClick={() => handleRemoveProject(project)}
+                >
                   Delete
                 </button>
               </div>
@@ -219,7 +226,9 @@ function Home() {
         {showCandidates && (
           <div className="participant-container">
             <h2>List of projects and candidates</h2>
-            <button className="event-button" onClick={exportToPDF}>Export to PDF</button>
+            <button className="event-button" onClick={exportToPDF}>
+              Export to PDF
+            </button>
 
             {loadingCandidates ? (
               <p>Loading candidates...</p>
