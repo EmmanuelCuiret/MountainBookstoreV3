@@ -221,7 +221,7 @@ const ProjectDetail = () => {
               )}
             </div>
             <div className="form-group">
-              <label htmlFor="description"><u>Description</u> :</label>
+              <label htmlFor="description">Description :</label>
               <textarea
                 id="description"
                 rows="7"
@@ -236,7 +236,7 @@ const ProjectDetail = () => {
               )}
             </div>
             <div className="form-group">
-              <label htmlFor="technologies"><u>Technologies</u> :</label>
+              <label htmlFor="technologies">Technologies :</label>
               <textarea
                 id="technologies"
                 rows="7"
@@ -267,10 +267,10 @@ const ProjectDetail = () => {
           <div className="event-card-no-scale">
             <h1 className="link-event">{project.title.toUpperCase()}</h1>
             <p>
-              <strong>Description:</strong> {project.description}
+              <strong><u>Description</u> :</strong> {project.description}
             </p>
             <p>
-              <strong>Technologies:</strong> {project.technologies}
+              <strong><u>Technologies</u> :</strong> {project.technologies}
             </p>
 
             <div className="button-group">
