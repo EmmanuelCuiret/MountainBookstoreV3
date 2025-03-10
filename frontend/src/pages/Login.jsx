@@ -13,8 +13,8 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    //const baseURL = "https://mountain-bookstore-backend.onrender.com/api/";
-    const baseURL = "http://localhost:3300/api/";
+    const baseURL = "https://mountain-bookstore-backend.onrender.com/";
+    //const baseURL = "http://localhost:3300/";
 
     if (!login.trim() || !password.trim()) {
       setIsSubmitting(true);

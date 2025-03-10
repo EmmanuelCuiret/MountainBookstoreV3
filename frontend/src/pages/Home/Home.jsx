@@ -9,8 +9,8 @@ import axiosInstance from "../../axiosInstance";
 
 function Home() {
   
-  //const baseURL = "https://mountain-bookstore-backend.onrender.com/api/";
-  const baseURL = "http://localhost:3300/api/";
+  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
+  //const baseURL = "http://localhost:3300/";
 
   const [projects, setProjects] = useState([]); // Liste des projets
   const [candidatesAndProjects, setCandidatesAndProjects] = useState({}); // Liste détaillée avec candidats

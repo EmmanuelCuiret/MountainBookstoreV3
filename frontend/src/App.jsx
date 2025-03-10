@@ -14,8 +14,8 @@ function App() {
         {/*Page de connexion accessible à tous */}
         <Route path="/login" element={<Login />} />
         
-        {/*Toutes les routes protégées */}
-        <Route element={<PrivateRoute/>}>
+        {/*Toutes les routes protégées*/} 
+        <Route element={<PrivateRoute/>}> 
           <Route path="/" element={<Home />} />
           <Route path="/add-project" element={<CreateProject />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
