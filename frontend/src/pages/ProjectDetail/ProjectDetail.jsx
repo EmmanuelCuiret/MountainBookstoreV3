@@ -298,8 +298,9 @@ const ProjectDetail = () => {
                     </td>
                     <td>
                       {candidate.candidate_id && (
-                        <button
-                          type="button"
+                       
+                       <button
+                          type="button" className="event-button"
                           onClick={(e) =>
                             handleDeleteAttendee(
                               candidate.candidate_id,
