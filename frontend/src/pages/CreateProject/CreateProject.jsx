@@ -32,9 +32,9 @@ const CreateProject = () => {
 
     const newProject = {
       title: sanitizeInput(title),
-      description: sanitizeInput(description),
+      description: description,
       author: sanitizeInput(author),
-      technologies: sanitizeInput(technologies)
+      technologies: technologies
     };
 
     try {

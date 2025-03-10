@@ -226,7 +226,7 @@ const ProjectDetail = () => {
                 id="description"
                 rows="7"
                 value={description}
-                onChange={(e) => setDescription(sanitizeInput(e.target.value))}
+                onChange={(e) => setDescription(e.target.value)}
                 className={
                   isSubmitting && !description.trim() ? "input-error" : ""
                 }
@@ -241,7 +241,7 @@ const ProjectDetail = () => {
                 id="technologies"
                 rows="7"
                 value={technologies}
-                onChange={(e) => setTechnologies(sanitizeInput(e.target.value))}
+                onChange={(e) => setTechnologies(e.target.value)}
                 className={
                   isSubmitting && !technologies.trim() ? "input-error" : ""
                 }
