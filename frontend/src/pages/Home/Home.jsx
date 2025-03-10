@@ -172,7 +172,7 @@ function Home() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/login"; // Redirection après la déconnexion
+    window.location.replace("/"); // Redirection après la déconnexion
   };
 
   return (
