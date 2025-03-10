@@ -267,10 +267,10 @@ const ProjectDetail = () => {
           <div className="event-card-no-scale">
             <h1 className="link-event">{project.title.toUpperCase()}</h1>
             <p>
-              <strong><u>Description</u> :</strong> {project.description}
+              <strong><u>Description</u> :</strong><br/>{project.description}
             </p>
             <p>
-              <strong><u>Technologies</u> :</strong> {project.technologies}
+              <strong><u>Technologies</u> :</strong><br/>{project.technologies}
             </p>
 
             <div className="button-group">
