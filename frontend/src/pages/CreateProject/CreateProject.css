@@ -56,7 +56,8 @@
   }
   
   #description,
-  #technologies {
+  #technologies,
+  #author {
     resize:none;
   }
   
