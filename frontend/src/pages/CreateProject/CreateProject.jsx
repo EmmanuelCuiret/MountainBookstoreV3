@@ -14,8 +14,8 @@ const CreateProject = () => {
 
   const navigate = useNavigate();
 
-  const baseURL = "https://mountain-bookstore-backend.onrender.com/";
-  //const baseURL = "http://localhost:3300/";
+  //const baseURL = "https://mountain-bookstore-backend.onrender.com/api/";
+  const baseURL = "http://localhost:3300/api/";
   
   const sanitizeInput = (value) => value.trim().replace(/[^A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'@-]/g, "");
 

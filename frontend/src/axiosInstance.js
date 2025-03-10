@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  //baseURL: "http://localhost:3300/", // Change l'URL selon ton backend
-  baseURL: "https://mountain-bookstore-backend.onrender.com/"
-
+  baseURL: "http://localhost:3300", // Change l'URL selon ton backend
+  //baseURL: "https://mountain-bookstore-backend.onrender.com"
+  timeout: 5000,
 });
 
 // Intercepteur pour ajouter le token automatiquement

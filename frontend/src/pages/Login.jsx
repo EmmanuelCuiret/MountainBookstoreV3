@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Swal from "sweetalert2";
 import "./Login.css";
+import axiosInstance from "../axiosInstance";
 
 function Login() {
   const [login, setLogin] = useState("");
@@ -13,8 +13,8 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    const baseURL = "https://mountain-bookstore-backend.onrender.com/";
-    //const baseURL = "http://localhost:3300/";
+    //const baseURL = "https://mountain-bookstore-backend.onrender.com/api/";
+    const baseURL = "http://localhost:3300/api/";
 
     if (!login.trim() || !password.trim()) {
       setIsSubmitting(true);
@@ -22,7 +22,7 @@ function Login() {
     }
 
     try {
-      const response = await axios.post(baseURL + "login", { login, password });
+      const response = await axiosInstance.post(baseURL + "login", { login, password });
       if (response.data.token) {
         localStorage.setItem("token", response.data.token); // Stocker le token JWT
         navigate("/");
